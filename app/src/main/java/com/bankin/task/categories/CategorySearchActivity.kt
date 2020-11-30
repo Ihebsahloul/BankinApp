@@ -3,12 +3,19 @@ package com.bankin.task.categories
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bankin.task.R
+import com.bankin.task.Utilities.*
 import com.bankin.task.base.BaseActivity
 import com.bankin.task.commons.Loading
 import com.bankin.task.commons.Success
+import com.bankin.task.models.ResourceRepositoryUiModel
+import com.bankin.task.models.SortType
+import kotlinx.android.synthetic.main.activity_category_repository.*
+import kotlinx.android.synthetic.main.layout_error_status_notifier.*
+import kotlinx.android.synthetic.main.layout_status_loading.*
 import javax.inject.Inject
 
 class CategorySearchActivity : BaseActivity() {
@@ -22,7 +29,7 @@ class CategorySearchActivity : BaseActivity() {
 
     private val CategoryRepoSearchResultAdapter: CategorySearchResultAdapter by lazy {
         CategorySearchResultAdapter {
-            launchUrl(this, it.url)
+            launchUrl(this, it.resource_uri)
         }
     }
 
@@ -34,7 +41,7 @@ class CategorySearchActivity : BaseActivity() {
         fetchTrendingRepositories()
     }
 
-    override fun getLayoutId() = R.layout.activity_trending_repository
+    override fun getLayoutId() = R.layout.activity_category_repository
 
     private fun observeUiState() {
         CategoryRepositoryViewModel.uiState.observe(this, Observer {
@@ -82,7 +89,7 @@ class CategorySearchActivity : BaseActivity() {
         containerShimmer.stopShimmer()
     }
 
-    private fun displaySearchResults(repoSearchResult: List<TrendingRepositoryUiModel>) {
+    private fun displaySearchResults(repoSearchResult: List<ResourceRepositoryUiModel>) {
         if (repoSearchResult.isNotEmpty()) {
             if (layoutError.isVisible) {
                 layoutError.hide()
@@ -121,7 +128,7 @@ class CategorySearchActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_sort_by_stars -> {
-                CategoryRepositoryViewModel.sortTrendingRepoResult(SortType.SortByStars)
+                CategoryRepositoryViewModel.sortTrendingRepoResult(SortType.SortByValue)
                 showSnackbar(rvRepository, getString(R.string.label_sorted_by_star))
                 true
             }
