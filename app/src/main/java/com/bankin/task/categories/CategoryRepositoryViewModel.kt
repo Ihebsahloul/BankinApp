@@ -3,16 +3,20 @@ package com.bankin.task.categories
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.bankin.domain.usecase.ResourceRepositoryUseCase
 import com.bankin.task.commons.Loading
 import com.bankin.task.commons.Success
 import com.bankin.task.commons.UiStateViewModel
+import com.bankin.task.models.ResourceRepositoryUiModel
+import com.bankin.task.models.SortType
 import com.mvvmclean.trendingrepos.models.ResourceRepositoryUiModel
 import com.mvvmclean.trendingrepos.models.SortType
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
 class CategoryRepositoryViewModel @Inject constructor(
-    private val CategoryRepositoryUseCase: TrendingRepositoryUseCase
+    private val CategoryRepositoryUseCase: ResourceRepositoryUseCase
 ) : UiStateViewModel() {
 
     private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Main)

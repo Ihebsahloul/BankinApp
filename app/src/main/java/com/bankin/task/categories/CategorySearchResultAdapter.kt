@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bankin.task.models.ResourceRepositoryUiModel
 import com.mvvmclean.trendingrepos.models.ResourceRepositoryUiModel
 
 class CategorySearchResultAdapter(val onClick: (ResourceRepositoryUiModel) -> Unit) :

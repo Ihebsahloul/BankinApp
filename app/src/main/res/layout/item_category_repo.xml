@@ -38,7 +38,7 @@
             app:layout_constraintStart_toEndOf="@+id/ivUserAvatar"
             app:layout_constraintTop_toTopOf="parent"
             app:textFont="regular"
-            tools:text="Username" />
+            tools:text="Name" />
 
         <com.bankin.task.view.CustomTextView
             android:id="@+id/tvRepoName"
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="@+id/tvUsername"
             app:layout_constraintTop_toBottomOf="@id/tvUsername"
             app:textFont="regular"
-            tools:text="Repo Name" />
+            tools:text="Category Name" />
 
         <com.bankin.task.view.CustomTextView
             android:id="@+id/tvRepoDesc"
