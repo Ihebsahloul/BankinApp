@@ -1,4 +1,4 @@
-package com.stootie.domain
+package com.bankin.domain
 
 import android.os.Parcelable
 import io.reactivex.Observer

@@ -1,4 +1,4 @@
-package com.mvvmclean.trendingrepos.mappers
+package com.bankin.task.mappers
 
 import com.bankin.domain.countries.model.Resource
 import com.mvvmclean.trendingrepos.models.ResourceRepositoryUiModel

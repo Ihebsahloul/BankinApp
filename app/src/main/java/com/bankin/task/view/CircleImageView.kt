@@ -1,4 +1,4 @@
-package com.stootie.task.view
+package com.bankin.task.view
 
 import android.content.Context
 import android.graphics.*
@@ -17,7 +17,8 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatImageView
-import com.stootie.task.R
+import com.bankin.task.R
+
 
 class CircleImageView : AppCompatImageView {
 

@@ -1,4 +1,4 @@
-package com.mvvmclean.trendingrepos.models
+package com.bankin.task.models
 
 import android.os.Parcelable
 import com.bankin.data.model.Parent

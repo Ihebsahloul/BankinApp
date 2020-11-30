@@ -1,10 +1,5 @@
-/*
- * @author   Anoop Maddasseri <anoopmaddasseri@gmail.com>
- * @version  1
- * @since    15th Feb 2020
- *
- * P.S. Increment version when editing
- */
+
+
 
 @file:JvmName("FontCache")
 

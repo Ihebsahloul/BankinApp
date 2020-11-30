@@ -1,4 +1,4 @@
-package com.mvvmclean.trendingrepos.domain.repository
+package com.bankin.domain.repository
 
 import com.bankin.domain.countries.model.Resource
 import kotlinx.coroutines.flow.Flow

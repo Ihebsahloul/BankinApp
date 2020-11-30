@@ -1,4 +1,4 @@
-package com.mvvmclean.trendingrepos.models
+package com.bankin.task.models
 
 interface BaseUiModel {
     fun toString(value: Int) = "$value"
