@@ -47,6 +47,7 @@ dependencies {
     implementation 'com.pixplicity.sharp:library:1.1.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
+    implementation "com.facebook.shimmer:shimmer:$shimmerAnimationVersion"
 
     // Kotlin + RX
     implementation "androidx.work:work-runtime-ktx:$rootProject.ext.work_version"
