@@ -1,10 +1,4 @@
-/*
- * @author   Anoop Maddasseri <anoopmaddasseri@gmail.com>
- * @version  1
- * @since    16th Feb 2020
- *
- * P.S. Increment version when editing
- */
+
 package com.bankin.task.base
 
 import android.os.Bundle
@@ -12,6 +6,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bankin.task.R
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
 abstract class BaseActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.bankin.data.model
+package com.bankin.domain.countries.model
 
 import java.io.Serializable
 

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View" />
         <variable
-            name="searchedCategoryRepo"
-            type="com.bankin.task.models.ResourceCategoryUiModel" />
+            name="searchedResource"
+            type="com.bankin.task.models.ResourceUiModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/containerTrendingRepo"
+        android:id="@+id/containerResource"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_placeholder_username_leading_margin"
             android:lines="1"
-            android:text="@{searchedCategoryRepo.author}"
+            android:text="@{}"
             android:textColor="@color/seconday_color"
             android:textSize="@dimen/md_text_size_micro"
             app:layout_constraintStart_toEndOf="@+id/ivUserAvatar"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/md_margin_padding_size_small"
             android:lines="1"
-            android:text="@{searchedCategoryRepo.name}"
+            android:text="@{searchedResource.name}"
             android:textColor="@color/grey"
             android:textSize="@dimen/md_text_size_medium"
             app:layout_constraintStart_toStartOf="@+id/tvUsername"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_repo_desc_margin"
             android:maxLines="2"
-            android:text="@{searchedCategoryRepo.description}"
+            android:text="@{searchedResource.other}"
             android:textColor="@color/grey"
             android:textSize="@dimen/md_text_size_small"
             app:layout_constraintEnd_toEndOf="@id/tvRepoName"
@@ -78,7 +78,7 @@
             android:drawableStart="@drawable/drawable_cricle_lang"
             android:drawablePadding="@dimen/md_margin_padding_size_small"
             android:lines="1"
-            android:text="@{searchedCategoryRepo.getDefault(searchedCategoryRepo.language,@string/label_unknown)}"
+            android:text="@{searchedResource.getDefault(searchedResource.custom,@string/label_unknown)}"
             android:textColor="@color/grey"
             android:textSize="@dimen/md_text_size_small"
             app:layout_constraintHorizontal_bias="0"
@@ -96,7 +96,7 @@
             android:drawableStart="@drawable/ic_repo_starts"
             android:drawablePadding="@dimen/md_margin_padding_size_small"
             android:lines="1"
-            android:text="@{searchedCategoryRepo.toString(searchedCategoryRepo.stars)}"
+            android:text="@{searchedResource.toString(searchedResource.name)}"
             android:textColor="@color/grey"
             android:textSize="@dimen/md_text_size_small"
             app:layout_constraintHorizontal_bias="0"
@@ -113,7 +113,7 @@
             android:drawableStart="@drawable/ic_repo_fork"
             android:drawablePadding="@dimen/md_margin_padding_size_small"
             android:lines="1"
-            android:text="@{searchedCategoryRepo.toString(searchedCategoryRepo.forks)}"
+            android:text="@{searchedResource.toString(searchedResource.name)}"
             android:textColor="@color/grey"
             android:textSize="@dimen/md_text_size_small"
             app:layout_constraintEnd_toEndOf="parent"

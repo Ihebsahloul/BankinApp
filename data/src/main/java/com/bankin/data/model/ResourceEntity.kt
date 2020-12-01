@@ -3,6 +3,7 @@ package com.bankin.data.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.bankin.domain.countries.model.Parent
 
 @Entity(tableName = "Resource")
 data class ResourceEntity(

@@ -1,7 +1,8 @@
 package com.bankin.task.di.modules.trendingreposearch
 
 
-import com.mvvmclean.trendingrepos.domain.repository.IResourceSearchRepository
+import com.bankin.domain.repository.IResourceSearchRepository
+import com.stootie.data.repository.CategoriesRepository
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
@@ -12,7 +13,7 @@ abstract class ResourceSearchBindingModule {
     @Singleton
     @Binds
     abstract fun bindTrendingRepoRepository(
-        trendingRepoSearchRepository: ResourceSearchRepository
+        categorySearchRepository: CategoriesRepository
     ): IResourceSearchRepository
 
 }
