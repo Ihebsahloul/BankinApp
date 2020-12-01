@@ -4,5 +4,5 @@
     <size
         android:width="@dimen/dimen_avatar"
         android:height="@dimen/dimen_avatar" />
-    <solid android:color="@color/colorGrey" />
+    <solid android:color="@color/grey" />
 </shape>

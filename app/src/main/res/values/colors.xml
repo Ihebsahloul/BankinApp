@@ -14,6 +14,10 @@
     <color name="transparent">@android:color/transparent</color>
     <color name="imgPlaceholder">#ffffff</color>
 
+    <color name="colorGrey800">#52575c</color>
+    <color name="colorGreen800">#31b057</color>
+    <color name="colorGreen100">#4431b057</color>
+
     <!-- toolbar colors -->
     <color name="red_toolbar_color">#1075B9</color>
     <color name="gray_toolbar_color">#4A4A4A</color>

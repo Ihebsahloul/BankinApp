@@ -49,7 +49,7 @@
         app:textFont="regular" />
 
 
-    <CustomButton
+    <com.bankin.task.view.CustomButton
         android:id="@+id/lookUpButton"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="match_parent"

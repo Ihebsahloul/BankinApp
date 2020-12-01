@@ -4,5 +4,5 @@
     <size
         android:width="@dimen/dimen_lang_circle"
         android:height="@dimen/dimen_lang_circle" />
-    <solid android:color="@color/colorGrey" />
+    <solid android:color="@color/grey" />
 </shape>
