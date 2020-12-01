@@ -1,10 +1,4 @@
-/*
- * @author   Anoop Maddasseri <anoopmaddasseri@gmail.com>
- * @version  1
- * @since    16th Feb 2020
- *
- * P.S. Increment version when editing
- */
+
 package com.bankin.task.di.factory
 
 import androidx.lifecycle.ViewModel

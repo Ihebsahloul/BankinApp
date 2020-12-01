@@ -11,7 +11,7 @@ import com.bankin.task.Utilities.*
 import com.bankin.task.base.BaseActivity
 import com.bankin.task.commons.Loading
 import com.bankin.task.commons.Success
-import com.bankin.task.models.ResourceRepositoryUiModel
+import com.bankin.task.models.ResourceCategoryUiModel
 import com.bankin.task.models.SortType
 import kotlinx.android.synthetic.main.activity_category_repository.*
 import kotlinx.android.synthetic.main.layout_error_status_notifier.*
@@ -54,7 +54,7 @@ class CategorySearchActivity : BaseActivity() {
     }
 
     private fun observeSearchResults() {
-        CategoryRepositoryViewModel.searchResultsTrendingRepositories.observe(this, Observer {
+        CategoryRepositoryViewModel.searchResultsCategories.observe(this, Observer {
             displaySearchResults(it)
         })
     }
@@ -89,7 +89,7 @@ class CategorySearchActivity : BaseActivity() {
         containerShimmer.stopShimmer()
     }
 
-    private fun displaySearchResults(repoSearchResult: List<ResourceRepositoryUiModel>) {
+    private fun displaySearchResults(repoSearchResult: List<ResourceCategoryUiModel>) {
         if (repoSearchResult.isNotEmpty()) {
             if (layoutError.isVisible) {
                 layoutError.hide()

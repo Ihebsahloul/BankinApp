@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 
 @Parcelize
-data class ResourceRepositoryUiModel(
+data class ResourceCategoryUiModel(
     val custom: Boolean,
     val id: Int,
     val is_deleted: Boolean,

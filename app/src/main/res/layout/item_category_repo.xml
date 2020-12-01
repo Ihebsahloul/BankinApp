@@ -7,7 +7,7 @@
 
         <variable
             name="searchedCategoryRepo"
-            type="com.bankin.task.models.ResourceRepositoryUiModel" />
+            type="com.bankin.task.models.ResourceCategoryUiModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

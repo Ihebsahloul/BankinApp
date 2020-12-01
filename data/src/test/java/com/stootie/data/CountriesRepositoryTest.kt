@@ -1,9 +1,6 @@
 package io.github.patrickyin.cleanarchitecture.data.articles.repository
 
 
-import CountryEntity
-import com.stootie.data.ApiInterface
-import com.stootie.data.model.Countries
 import com.stootie.data.repository.CountriesRepository
 import io.reactivex.Single
 import io.reactivex.observers.TestObserver

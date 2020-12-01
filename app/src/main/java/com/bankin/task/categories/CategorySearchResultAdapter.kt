@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bankin.task.models.ResourceRepositoryUiModel
+import com.bankin.task.models.ResourceCategoryUiModel
 import com.mvvmclean.trendingrepos.models.ResourceRepositoryUiModel
 
-class CategorySearchResultAdapter(val onClick: (ResourceRepositoryUiModel) -> Unit) :
-    ListAdapter<ResourceRepositoryUiModel, CategorySearchResultAdapter.TrendingRepoViewHolder>(
+class CategorySearchResultAdapter(val onClick: (ResourceCategoryUiModel) -> Unit) :
+    ListAdapter<ResourceCategoryUiModel, CategorySearchResultAdapter.TrendingRepoViewHolder>(
         TrendingRepoDiffUtil
     ) {
 
@@ -27,7 +27,7 @@ class CategorySearchResultAdapter(val onClick: (ResourceRepositoryUiModel) -> Un
     inner class TrendingRepoViewHolder(private val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(modelRepository: ResourceRepositoryUiModel, position: Int) {
+        fun bind(modelRepository: ResourceCategoryUiModel, position: Int) {
             binding.searchedTrendingRepo = modelRepository
             binding.executePendingBindings()
             populateData(modelRepository)
@@ -40,7 +40,7 @@ class CategorySearchResultAdapter(val onClick: (ResourceRepositoryUiModel) -> Un
             }
         }
 
-        private fun populateData(modelRepository: ResourceRepositoryUiModel) {
+        private fun populateData(modelRepository: ResourceCategoryUiModel) {
             binding.apply {
                 modelRepository.let { it ->
                     it.languageColor?.let { binding.tvRepoLang.setDrawableBackgroundColor(it) }
@@ -55,7 +55,7 @@ class CategorySearchResultAdapter(val onClick: (ResourceRepositoryUiModel) -> Un
         }
 
         private fun expandCollapse(
-            modelRepository: ResourceRepositoryUiModel,
+            modelRepository: ResourceCategoryUiModel,
             position: Int
         ) {
             //Expand on clicking same item in collapsed state
@@ -84,15 +84,15 @@ class CategorySearchResultAdapter(val onClick: (ResourceRepositoryUiModel) -> Un
 
     companion object {
         val TrendingRepoDiffUtil =
-            object : DiffUtil.ItemCallback<ResourceRepositoryUiModel>() {
+            object : DiffUtil.ItemCallback<ResourceCategoryUiModel>() {
                 override fun areItemsTheSame(
-                    oldItem: ResourceRepositoryUiModel,
-                    newItem: ResourceRepositoryUiModel
+                    oldItem: ResourceCategoryUiModel,
+                    newItem: ResourceCategoryUiModel
                 ): Boolean = oldItem.resource_uri == newItem.resource_uri
 
                 override fun areContentsTheSame(
-                    oldItem: ResourceRepositoryUiModel,
-                    newItem: ResourceRepositoryUiModel
+                    oldItem: ResourceCategoryUiModel,
+                    newItem: ResourceCategoryUiModel
                 ): Boolean = oldItem == newItem
 
             }

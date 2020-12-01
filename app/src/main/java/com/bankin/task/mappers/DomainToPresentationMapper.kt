@@ -1,11 +1,11 @@
 package com.bankin.task.mappers
 
 import com.bankin.domain.countries.model.Resource
-import com.mvvmclean.trendingrepos.models.ResourceRepositoryUiModel
+import com.bankin.task.models.ResourceCategoryUiModel
 
 
-fun Resource.toPresentation(): ResourceRepositoryUiModel {
-    return ResourceRepositoryUiModel(
+fun Resource.toPresentation(): ResourceCategoryUiModel {
+    return ResourceCategoryUiModel(
         this.custom,
         this.id,
         this.is_deleted,

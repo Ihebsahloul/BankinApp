@@ -2,6 +2,7 @@
 package com.bankin.task.di.modules
 
 import com.bankin.task.base.BaseActivity
+import com.bankin.task.categories.CategorySearchActivity
 import com.bankin.task.categories.di.component.ActivityScope
 import com.bankin.task.di.modules.base.BaseBindingModule
 import com.bankin.task.di.modules.base.BaseModule
@@ -19,5 +20,5 @@ abstract class ActivityBuilderModule {
 
     @ActivityScope
     @ContributesAndroidInjector(modules = [ResourceSearchModule::class])
-    abstract fun provideSearchActivity(): ResourceRepoSearchActivity
+    abstract fun provideSearchActivity(): CategorySearchActivity
 }
