@@ -1,6 +1,5 @@
 package com.bankin.data.mappers
 
-import com.bankin.data.model.Parent
 import com.bankin.data.model.ResourceEntity
 import com.bankin.domain.countries.model.Resource
 

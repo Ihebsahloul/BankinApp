@@ -8,6 +8,7 @@ import com.bankin.task.di.modules.ResourceRepoApiModule
 import com.mvvmclean.trendingrepos.di.modules.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 /**

@@ -1,8 +1,10 @@
 package com.bankin.data.mappers
 
 import com.bankin.data.model.ResourceEntity
+import com.bankin.data.response.ResourceResponse
+import com.bankin.domain.countries.model.Resource
 
-internal fun ResourceEntity.toEntity(primaryKey: Int): ResourceEntity {
+internal fun ResourceResponse.toEntity(primaryKey: Int): ResourceEntity {
     return ResourceEntity(
         this.custom,
         this.id,
