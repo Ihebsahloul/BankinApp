@@ -11,7 +11,6 @@ import android.widget.TextView
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import com.bankin.domain.countries.model.Country
 import com.bankin.task.R
-import com.bankin.task.categorydetail.CountryDetailActivity
 
 class CountryVH(itemView: View,private val countries: List<Country>) : BaseVH(itemView) {
 
