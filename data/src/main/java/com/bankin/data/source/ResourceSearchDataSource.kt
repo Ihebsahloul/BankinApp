@@ -25,7 +25,7 @@ class ResourceSearchDataSource @Inject constructor(
      */
     suspend fun query(forceRefresh: Boolean): Flow<List<ResourceEntity>> {
         val syncUpIntervalInSeconds = 2L * 3_600
-        val isCacheAvailable = resourceRepoDao.isReposCacheAvailable() > 0
+        val isCacheAvailable = resourceRepoDao.isCategoriesCacheAvailable() > 0
         val lastSyncUpTime =
             sharedPrefsHelper[SharedPrefsHelper.PREF_KEY_REPO_LAST_UPDATED_TIME, 0L]
         val isTimeSurpassed =
@@ -39,12 +39,12 @@ class ResourceSearchDataSource @Inject constructor(
                 ResourceSearchDataSource::class.java.name,
                 "{Clearing cache - action Force Refresh}"
             )
-            resourceRepoDao.deleteAllTrendingRepos()
+            resourceRepoDao.deleteAllCategories()
         } else if (isCacheAvailable && !isTimeSurpassed) {
             AppLogger.logD(
                 ResourceSearchDataSource::class.java.name, "{Cache Found}"
             )
-            return flow { emit(resourceRepoDao.allTrendingRepos()) }
+            return flow { emit(resourceRepoDao.allCategories()) }
         }
         val searchResponse = apiService.resourceRepoSearchRepositories()
         val searchDataModels = mutableListOf<ResourceEntity>()
@@ -52,7 +52,7 @@ class ResourceSearchDataSource @Inject constructor(
             searchDataModels.add(searchResult.toEntity(index))
         }
         //save to data base
-        resourceRepoDao.saveTrendingRepos(searchDataModels)
+        resourceRepoDao.saveCategories(searchDataModels)
         //update time after a successful sync up with backend
         sharedPrefsHelper.put(
             SharedPrefsHelper.PREF_KEY_REPO_LAST_UPDATED_TIME,

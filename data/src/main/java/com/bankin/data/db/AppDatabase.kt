@@ -7,5 +7,5 @@ import com.bankin.data.model.ResourceEntity
 
 @Database(entities = [ResourceEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun trendingRepoDao(): ResourceRepoDao
+    abstract fun categoriesDao(): ResourceRepoDao
 }

@@ -12,13 +12,13 @@ import dagger.Provides
 @Module
 open class ResourceSearchModule {
     @Provides
-    fun provideTrendingRepoSearchUseCase(
+    fun provideCategorySearchUseCase(
         trendingRepoSearchRepository: CategoriesRepository
     ): ResourceRepositoryUseCase =
         ResourceRepositoryUseCase(trendingRepoSearchRepository)
 
     @Provides
-    fun provideTrendingRepoSearchDataSource(
+    fun provideCategorySearchDataSource(
             apiService: ResourceRepoApiService,
             trendingRepoDao: ResourceRepoDao,
             sharedPrefsHelper: SharedPrefsHelper

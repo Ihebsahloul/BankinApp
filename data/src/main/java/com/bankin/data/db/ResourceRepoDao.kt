@@ -19,23 +19,23 @@ interface ResourceRepoDao {
      * @return all products in cart.
      */
     @Query("SELECT * FROM Resource")
-    suspend fun allTrendingRepos(): List<ResourceEntity>
+    suspend fun allCategories(): List<ResourceEntity>
 
     /**
      * Insert all repose
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveTrendingRepos(userProductCart: List<ResourceEntity?>?)
+    suspend fun saveCategories(userProductCart: List<ResourceEntity?>?)
 
     /**
      * Delete all repos
      */
     @Query("DELETE FROM Resource")
-    suspend fun deleteAllTrendingRepos()
+    suspend fun deleteAllCategories()
 
     /**
      * Delete all repos
      */
     @Query("SELECT COUNT(*) FROM Resource")
-    suspend fun isReposCacheAvailable(): Int
+    suspend fun isCategoriesCacheAvailable(): Int
 }

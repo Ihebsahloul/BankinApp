@@ -49,10 +49,10 @@ class ApplicationModule {
 
     @Provides
     @Named("databaseName")
-    fun provideDatabaseName(): String = "TrendingRepo.db"
+    fun provideDatabaseName(): String = "Categories.db"
 
     @Singleton
     @Provides
     fun provideTrendingRepoDao(appDatabase: AppDatabase): ResourceRepoDao =
-        appDatabase.trendingRepoDao()
+        appDatabase.categoriesDao()
 }

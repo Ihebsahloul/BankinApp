@@ -26,7 +26,7 @@ open class ResourceRepoApiModule {
 
     @Singleton
     @Provides
-    open fun provideTrendingRepoApi(retrofit: Retrofit): ResourceRepoApiService {
+    open fun provideCtegoriesApi(retrofit: Retrofit): ResourceRepoApiService {
         return retrofit.create(ResourceRepoApiService::class.java)
     }
 
