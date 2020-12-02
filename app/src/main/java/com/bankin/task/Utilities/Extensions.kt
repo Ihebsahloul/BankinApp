@@ -9,9 +9,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.bankin.data.utils.AppLogger
 import com.bankin.task.R
+import com.bankin.task.categories.di.module.GlideApp
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
 import java.lang.IllegalArgumentException
 
 

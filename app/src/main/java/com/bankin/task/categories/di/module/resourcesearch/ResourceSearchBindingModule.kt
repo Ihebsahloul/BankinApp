@@ -12,7 +12,7 @@ abstract class ResourceSearchBindingModule {
 
     @Singleton
     @Binds
-    abstract fun bindTrendingRepoRepository(
+    abstract fun bindCategoryRepository(
         categorySearchRepository: CategoriesRepository
     ): IResourceSearchRepository
 

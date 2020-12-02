@@ -12,13 +12,14 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
             minifyEnabled false
+            multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "ENDPOINT", "\"https://restcountries.eu/rest/v2/\""
         }
@@ -65,8 +66,9 @@ dependencies {
     implementation "com.facebook.shimmer:shimmer:$shimmerAnimationVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation "com.github.bumptech.glide:compiler:$glideVersion"
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     implementation "jp.wasabeef:recyclerview-animators:$recyclerviewAnimationVersion"
-
+    implementation 'com.android.support:multidex:1.0.3'
 
     // Kotlin + RX
     implementation "androidx.work:work-runtime-ktx:$rootProject.ext.work_version"
@@ -78,11 +80,11 @@ dependencies {
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
     implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
     testImplementation "junit:junit:${rootProject.ext.junit_version}"
     //dagger support
-    implementation "com.google.dagger:dagger-compiler:$dagger2_vesion"
     implementation "com.google.dagger:dagger-android:$dagger2_vesion"
-    implementation "com.google.dagger:dagger-android-processor:$dagger2_vesion"
+    kapt "com.google.dagger:dagger-android-processor:$dagger2_vesion"
     kapt "com.google.dagger:dagger-compiler:$dagger2_vesion"
 
 

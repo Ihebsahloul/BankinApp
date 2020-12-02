@@ -1,24 +1,37 @@
 package com.bankin.task
 
 import android.app.Application
-import com.bankin.task.dagger.component.AppComponent
-import com.bankin.task.dagger.component.DaggerAppComponent
-import com.bankin.task.dagger.module.AppModule
+import android.content.Context
+import com.bankin.task.categories.di.component.AppComponent
+import com.bankin.task.categories.di.component.DaggerAppComponent
 
-class BankinApp : Application() {
-  val applicationComponent: AppComponent by lazy {
-    DaggerAppComponent.builder()
-      .appModule(AppModule(this))
-      .build()
-  }
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
+
+class BankinApp :  Application(), HasAndroidInjector {
+
+  @Inject
+  lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
+  private lateinit var appComponent: AppComponent
 
   override fun onCreate() {
     super.onCreate()
-    initInjector()
+    appComponent = DaggerAppComponent.factory()
+      .create(applicationContext)
+
+    getApplicationComponent().inject(this)
   }
 
-  private fun initInjector() {
-    applicationComponent.inject(this)
+  override fun attachBaseContext(base: Context) {
+    super.attachBaseContext(base)
   }
+
+  open fun getApplicationComponent(): AppComponent = appComponent
+
+  override fun androidInjector(): AndroidInjector<Any> = androidInjector
+
 
 }

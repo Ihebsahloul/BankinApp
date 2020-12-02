@@ -4,7 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import com.mvvmclean.trendingrepos.R
+import com.bankin.task.R
 
 fun launchUrl(context: Context, url: String?) {
     try {
