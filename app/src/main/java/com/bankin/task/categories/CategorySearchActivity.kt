@@ -3,19 +3,23 @@ package com.bankin.task.categories
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bankin.task.R
 import com.bankin.task.Utilities.*
 import com.bankin.task.base.BaseActivity
+import com.bankin.task.commons.Error
 import com.bankin.task.commons.Loading
 import com.bankin.task.commons.Success
-import com.bankin.task.models.ResourceCategoryUiModel
+import com.bankin.task.models.ResourceUiModel
 import com.bankin.task.models.SortType
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_category_repository.*
 import kotlinx.android.synthetic.main.layout_error_status_notifier.*
 import kotlinx.android.synthetic.main.layout_status_loading.*
+import kotlinx.coroutines.InternalCoroutinesApi
 import javax.inject.Inject
 
 class CategorySearchActivity : BaseActivity() {
@@ -33,6 +37,7 @@ class CategorySearchActivity : BaseActivity() {
         }
     }
 
+    @InternalCoroutinesApi
     override fun initComponents(savedInstanceState: Bundle?) {
         enableHomeUp(R.string.title_trending)
         observeUiState()
@@ -59,6 +64,7 @@ class CategorySearchActivity : BaseActivity() {
         })
     }
 
+    @InternalCoroutinesApi
     private fun addListeners() {
         swipeRepoRefresh.setOnRefreshListener {
             fetchTrendingRepositories(true)
@@ -73,6 +79,7 @@ class CategorySearchActivity : BaseActivity() {
         }
     }
 
+    @InternalCoroutinesApi
     private fun fetchTrendingRepositories(forceRefresh: Boolean = false) {
         CategoryRepositoryViewModel.executeCategoryRepositorySearch(forceRefresh)
     }
@@ -89,7 +96,7 @@ class CategorySearchActivity : BaseActivity() {
         containerShimmer.stopShimmer()
     }
 
-    private fun displaySearchResults(repoSearchResult: List<ResourceCategoryUiModel>) {
+    private fun displaySearchResults(repoSearchResult: List<ResourceUiModel>) {
         if (repoSearchResult.isNotEmpty()) {
             if (layoutError.isVisible) {
                 layoutError.hide()

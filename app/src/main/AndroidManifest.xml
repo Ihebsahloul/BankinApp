@@ -4,15 +4,16 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
+        android:name="com.bankin.task.BankinApp"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:theme="@style/AppTheme"
             android:configChanges="orientation|screenSize"
-            android:name=".categories.CountriesActivity">
+            android:name=".categories.CategorySearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +21,6 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".categorydetail.CountryDetailActivity" />
     </application>
 
 </manifest>

@@ -8,12 +8,11 @@ import com.bankin.domain.usecase.ResourceRepositoryUseCase
 import com.bankin.task.commons.Loading
 import com.bankin.task.commons.Success
 import com.bankin.task.commons.UiStateViewModel
-import com.bankin.task.models.ResourceCategoryUiModel
+import com.bankin.task.mappers.toPresentation
+import com.bankin.task.models.ResourceUiModel
 import com.bankin.task.models.SortType
-import io.reactivex.internal.operators.flowable.FlowableCollect
 import kotlinx.coroutines.*
-import org.intellij.lang.annotations.Flow
-import javax.annotation.Resource
+import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 class CategoryRepositoryViewModel @Inject constructor(
@@ -23,19 +22,18 @@ class CategoryRepositoryViewModel @Inject constructor(
     private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
     private var searchJob: Job? = null
 
-    val searchResultsCategories: LiveData<List<ResourceCategoryUiModel>>
+    val searchResultsCategories: LiveData<List<ResourceUiModel>>
         get() = _searchResultsCategoryRepository
 
-    private var _searchResultsCategoryRepository: MutableLiveData<List<ResourceCategoryUiModel>> =
+    private var _searchResultsCategoryRepository: MutableLiveData<List<ResourceUiModel>> =
         MutableLiveData()
 
-    @InternalCoroutinesApi
+
     fun executeCategoryRepositorySearch(forceRefresh: Boolean = false) {
         _uiState.value = Loading
         viewModelScope.launch(handler) {
             CategoryRepositoryUseCase(forceRefresh).collect { results ->
-                _searchResultsCategoryRepository.value = results.map { it.toPresentation() }
-            }
+                _searchResultsCategoryRepository.value = results.map { it.toPresentation() } }
             _uiState.value = Success
         }
     }
@@ -54,7 +52,7 @@ class CategoryRepositoryViewModel @Inject constructor(
         }
     }
 
-    private fun sortByNames(trendingRepo: List<ResourceCategoryUiModel>?) {
+    private fun sortByNames(trendingRepo: List<ResourceUiModel>?) {
         _uiState.value = Loading
         searchJob?.cancel()
         searchJob = coroutineScope.launch {
@@ -64,7 +62,7 @@ class CategoryRepositoryViewModel @Inject constructor(
         }
     }
 
-    private fun sortByValue(trendingRepo: List<ResourceCategoryUiModel>?) {
+    private fun sortByValue(trendingRepo: List<ResourceUiModel>?) {
         _uiState.value = Loading
         searchJob?.cancel()
         searchJob = coroutineScope.launch {

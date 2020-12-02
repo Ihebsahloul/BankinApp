@@ -2,6 +2,7 @@ package com.bankin.task
 
 import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDexApplication
 import com.bankin.task.categories.di.component.AppComponent
 import com.bankin.task.categories.di.component.DaggerAppComponent
 
@@ -10,7 +11,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
-class BankinApp :  Application(), HasAndroidInjector {
+class BankinApp :  MultiDexApplication(), HasAndroidInjector {
 
   @Inject
   lateinit var androidInjector: DispatchingAndroidInjector<Any>
