@@ -8,21 +8,21 @@ import com.bankin.domain.countries.model.Parent
 
 @Entity(tableName = "ResourceEntity")
 data class ResourceEntity(
-    @PrimaryKey val id: Int,
+    @PrimaryKey val id: Int?,
     @ColumnInfo(name = "resource_uri")
-    val resource_uri: String,
+    val resource_uri: String?,
     @ColumnInfo(name = "resource_type")
-    val resource_type: String,
+    val resource_type: String?,
     @ColumnInfo(name = "name")
-    val name: String,
+    val name: String?,
     @ColumnInfo(name = "parent")
-    val parent: Parent,
+    val parent: Parent?,
     @ColumnInfo(name = "custom")
-    val custom: Boolean,
+    val custom: Boolean?,
     @ColumnInfo(name = "other")
-    val other: Boolean,
+    val other: Boolean?,
     @ColumnInfo(name = "is_deleted")
-    val is_deleted: Boolean
+    val is_deleted: Boolean?
 
 
 

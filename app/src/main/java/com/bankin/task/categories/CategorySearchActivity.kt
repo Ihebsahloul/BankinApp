@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bankin.data.utils.AppLogger
 import com.bankin.task.R
 import com.bankin.task.Utilities.*
 import com.bankin.task.base.BaseActivity
@@ -125,6 +126,7 @@ class CategorySearchActivity : BaseActivity() {
         hideLoadingState()
         layoutError.show()
         showSnackbar(rvRepository, "${error.message}")
+        AppLogger.logD("activity",error.message)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -1,6 +1,11 @@
 package com.bankin.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class CategoriesResponse(
-    val pagination: Pagination,
-    val resources: List<ResourceEntity>
+        @SerializedName("resources")
+    val resources: ArrayList<ResourceEntity>,
+        @SerializedName("pagination")
+    val pagination: PaginationEntity
+
 )

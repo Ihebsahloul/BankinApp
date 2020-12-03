@@ -48,7 +48,7 @@ class ResourceSearchDataSource @Inject constructor(
         }
         val searchResponse = apiService.resourceRepoSearchRepositories()
         val searchDataModels = mutableListOf<ResourceEntity>()
-        searchResponse.forEachIndexed { index, searchResult ->
+        searchResponse.resources.forEachIndexed { index, searchResult ->
             searchDataModels.add(searchResult.toEntity(index))
         }
         //save to data base
