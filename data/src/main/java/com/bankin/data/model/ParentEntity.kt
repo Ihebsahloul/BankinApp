@@ -8,8 +8,9 @@ import java.io.Serializable
 @Entity(tableName = "Parent")
 data class ParentEntity(
     @PrimaryKey val id: Int,
-    @ColumnInfo(name = "resource_type")
-    val resource_type: String,
     @ColumnInfo(name = "resource_uri")
-    val resource_uri: String
-) : Serializable
+    val resource_uri: String,
+    @ColumnInfo(name = "resource_type")
+    val resource_type: String
+
+)

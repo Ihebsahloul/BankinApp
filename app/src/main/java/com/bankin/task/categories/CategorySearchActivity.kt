@@ -39,7 +39,7 @@ class CategorySearchActivity : BaseActivity() {
 
     @InternalCoroutinesApi
     override fun initComponents(savedInstanceState: Bundle?) {
-        enableHomeUp(R.string.title_trending)
+        enableHomeUp(R.string.title_bankin)
         observeUiState()
         observeSearchResults()
         addListeners()

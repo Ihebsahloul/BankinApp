@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 
 interface ResourceRepoApiService {
-    @GET("categories")
+    @GET("categories.json")
     suspend fun resourceRepoSearchRepositories(): MutableList<ResourceResponse>
 }

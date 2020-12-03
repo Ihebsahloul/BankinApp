@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+
 android {
     compileSdkVersion 29
 
@@ -86,6 +87,10 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$dagger2_vesion"
     kapt "com.google.dagger:dagger-android-processor:$dagger2_vesion"
     kapt "com.google.dagger:dagger-compiler:$dagger2_vesion"
+
+
+
+    implementation "androidx.room:room-runtime:$roomVersion"
 
 
 }

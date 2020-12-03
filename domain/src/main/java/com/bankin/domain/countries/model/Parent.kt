@@ -4,6 +4,7 @@ import java.io.Serializable
 
 data class Parent(
     val id: Int,
-    val resource_type: String,
-    val resource_uri: String
+    val resource_uri: String,
+    val resource_type: String
+
 ) : Serializable

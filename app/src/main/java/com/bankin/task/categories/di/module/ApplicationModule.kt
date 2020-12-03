@@ -35,7 +35,7 @@ class ApplicationModule {
             context.applicationContext,
             AppDatabase::class.java,
             dbName
-        ).fallbackToDestructiveMigration().build()
+        ).build()
     }
 
     @Singleton

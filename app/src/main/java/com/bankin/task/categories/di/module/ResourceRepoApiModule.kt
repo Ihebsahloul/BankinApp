@@ -42,6 +42,6 @@ open class ResourceRepoApiModule {
 
     @Provides
     @Named("baseUrl")
-    open fun provideBaseUrl(): String = "https://raw.githubusercontent.com/bankin-engineering/challenge-android/master/categories.json"
+    open fun provideBaseUrl(): String = "https://raw.githubusercontent.com/bankin-engineering/challenge-android/master/"
 
 }

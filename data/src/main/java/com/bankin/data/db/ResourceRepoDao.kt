@@ -1,10 +1,7 @@
 
 package com.bankin.data.db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.bankin.data.model.ResourceEntity
 
 
@@ -18,7 +15,7 @@ interface ResourceRepoDao {
      *
      * @return all products in cart.
      */
-    @Query("SELECT * FROM Resource")
+    @Query("SELECT * FROM ResourceEntity")
     suspend fun allCategories(): List<ResourceEntity>
 
     /**
@@ -30,12 +27,12 @@ interface ResourceRepoDao {
     /**
      * Delete all repos
      */
-    @Query("DELETE FROM Resource")
+    @Query("DELETE FROM ResourceEntity")
     suspend fun deleteAllCategories()
 
     /**
      * Delete all repos
      */
-    @Query("SELECT COUNT(*) FROM Resource")
+    @Query("SELECT COUNT(*) FROM ResourceEntity")
     suspend fun isCategoriesCacheAvailable(): Int
 }

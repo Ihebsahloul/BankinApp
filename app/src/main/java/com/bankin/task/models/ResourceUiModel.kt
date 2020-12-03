@@ -7,13 +7,13 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class ResourceUiModel(
-    val custom: Boolean,
-    val id: Int,
-    val is_deleted: Boolean,
-    val name: String,
-    val other: Boolean,
-    val parent: Parent,
-    val resource_type: String,
-    val resource_uri: String,
-    var expand: Boolean = false
+        val id: Int,
+        val resource_uri: String,
+        val resource_type: String,
+        val name: String,
+        val parent: Parent,
+        val custom: Boolean,
+        val other: Boolean,
+        val is_deleted: Boolean,
+        var expand: Boolean = false
 ) : Parcelable, BaseUiModel

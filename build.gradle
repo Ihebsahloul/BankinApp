@@ -25,6 +25,7 @@ buildscript {
         lifecycleExtensionsVersion = '2.1.0'
         recyclerviewAnimationVersion = '3.0.0'
         coroutinesCoreVersion = '1.3.3'
+        archRoomVersion = '1.0.0-alpha1'
     }
     ext.kotlin_version = "1.3.72"
     ext.jacocoVersion = '0.1.4'

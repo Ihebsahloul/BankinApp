@@ -6,14 +6,18 @@ import com.bankin.domain.countries.model.Resource
 
 internal fun ResourceEntity.toDomain(): Resource {
     return Resource(
+            this.id,
+            this.resource_uri,
+            this.resource_type,
+            this.name,
+            this.parent,
+            this.custom,
+            this.other,
+            this.is_deleted
 
-    this.custom,
-    this.id,
-    this.is_deleted,
-    this.name,
-    this.other,
-    this.parent,
-    this.resource_type,
-    this.resource_uri
+
+
+
+
     )
 }

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -37,6 +38,9 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8
     }
 }
+kapt {
+    generateStubs = true
+}
 
 dependencies {
     def retrofit_version = "2.6.0"
@@ -59,10 +63,18 @@ dependencies {
     implementation "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-rxjava2:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2'
     implementation "io.reactivex.rxjava2:rxandroid:${rootProject.ext.rxandroid_version}"
+   /* implementation "android.arch.persistence.room:runtime:${archRoomVersion}"
+    annotationProcessor "android.arch.persistence.room:compiler:${archRoomVersion}"
+    kapt "android.arch.persistence.room:compiler:${archRoomVersion}"*/
+
     //dagger support
     implementation "com.google.dagger:dagger:$dagger2_vesion"
+
 
 
 }
