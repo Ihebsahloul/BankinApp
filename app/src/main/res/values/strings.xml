@@ -42,10 +42,11 @@
     <string name="label_sort_by_name">Sort by name</string>
     <string name="label_sorted_by_star">Sorted by repository stars</string>
     <string name="label_sorted_repo_name">Sorted by repository name</string>
-    <string name="title_bankin">Bankin</string>
+    <string name="title_bankin">Bankin\'</string>
 
     <!--  Data Binding String Templates-->
     <string name="content_desc_avatar">Avatar</string>
     <string name="label_no_times">No Items Found</string>
     <string name="label_unknown">Unknown</string>
+    <string name="bankin_text">Bankin\'</string>
 </resources>

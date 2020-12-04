@@ -44,7 +44,7 @@ class CategorySearchActivity : BaseActivity() {
         observeUiState()
         observeSearchResults()
         addListeners()
-        fetchTrendingRepositories()
+        fetchCategories()
     }
 
     override fun getLayoutId() = R.layout.activity_category_repository
@@ -68,11 +68,11 @@ class CategorySearchActivity : BaseActivity() {
     @InternalCoroutinesApi
     private fun addListeners() {
         swipeRepoRefresh.setOnRefreshListener {
-            fetchTrendingRepositories(true)
+            fetchCategories(true)
             swipeRepoRefresh.isRefreshing = false
         }
         lookUpButton.setOnClickListener {
-            fetchTrendingRepositories()
+            fetchCategories()
         }
 
         vInvisible.setOnClickListener {
@@ -81,13 +81,14 @@ class CategorySearchActivity : BaseActivity() {
     }
 
     @InternalCoroutinesApi
-    private fun fetchTrendingRepositories(forceRefresh: Boolean = false) {
+    private fun fetchCategories(forceRefresh: Boolean = false) {
         CategoryRepositoryViewModel.executeCategoryRepositorySearch(forceRefresh)
     }
 
     private fun displayLoadingState() {
         rvRepository.hide()
         containerShimmer.show()
+        containerShimmer.startShimmer()
         containerShimmer.showShimmer(true)
     }
 

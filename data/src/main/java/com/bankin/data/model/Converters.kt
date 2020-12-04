@@ -8,17 +8,17 @@ import com.google.gson.reflect.TypeToken
 class Converters {
 
     @TypeConverter
-    fun fromMediaToJson(parent: Parent?): String {
+    fun fromParentToJson(parent: Parent?): String? {
         return Gson().toJson(parent)
     }
 
     /**
-     * Convert a json to a list of Images
+     * Convert a json to a parent
      */
     @TypeConverter
-    fun fromJsonToMedia(jsonImages: String?): Parent {
+    fun fromJsonToParent(parentJson: String?): Parent {
         val type = object : TypeToken<Parent>() {}.type
-        return Gson().fromJson<Parent>(jsonImages, type)
+        return Gson().fromJson<Parent>(parentJson, type)
     }
 
 }
