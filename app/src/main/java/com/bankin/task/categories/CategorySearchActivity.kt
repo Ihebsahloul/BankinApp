@@ -1,8 +1,10 @@
 package com.bankin.task.categories
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -31,12 +33,26 @@ class CategorySearchActivity : BaseActivity() {
     private val CategoryRepositoryViewModel: CategoryRepositoryViewModel by viewModels { viewModelFactory }
 
     private var mBackPressed: Long = 0
+    public lateinit var subDialog : SubCategoriesFragment
 
+    @InternalCoroutinesApi
     private val CategoryRepoSearchResultAdapter: CategorySearchResultAdapter by lazy {
         CategorySearchResultAdapter {
-            launchUrl(this, it.resource_uri)
+            //           launchUrl(this, it.resource_uri)
+
+            CategoryRepositoryViewModel.name.observe(this, Observer {
+                CategoryRepositoryViewModel.name = it
+            })
+
+            fetchSubCategories(it.id,forceRefresh = true)
+            subDialog = SubCategoriesFragment()
+            subDialog.show(supportFragmentManager,"theDialog")
+
         }
+
     }
+
+
 
     @InternalCoroutinesApi
     override fun initComponents(savedInstanceState: Bundle?) {
@@ -59,6 +75,7 @@ class CategorySearchActivity : BaseActivity() {
         })
     }
 
+    @InternalCoroutinesApi
     private fun observeSearchResults() {
         CategoryRepositoryViewModel.searchResultsCategories.observe(this, Observer {
             displaySearchResults(it)
@@ -81,8 +98,12 @@ class CategorySearchActivity : BaseActivity() {
     }
 
     @InternalCoroutinesApi
-    private fun fetchCategories(forceRefresh: Boolean = false) {
+    private fun fetchCategories(forceRefresh: Boolean = true) {
         CategoryRepositoryViewModel.executeCategoryRepositorySearch(forceRefresh)
+    }
+    @InternalCoroutinesApi
+    private fun fetchSubCategories(parentId : Int? , forceRefresh: Boolean = true) {
+        CategoryRepositoryViewModel.executeSubCategoryRepositorySearch(parentId ,forceRefresh)
     }
 
     private fun displayLoadingState() {
@@ -98,6 +119,7 @@ class CategorySearchActivity : BaseActivity() {
         containerShimmer.stopShimmer()
     }
 
+    @InternalCoroutinesApi
     private fun displaySearchResults(repoSearchResult: List<ResourceUiModel>) {
         if (repoSearchResult.isNotEmpty()) {
             if (layoutError.isVisible) {
@@ -106,11 +128,11 @@ class CategorySearchActivity : BaseActivity() {
 
             rvRepository.apply {
                 adapter =
-                    ScaleInAnimationAdapter(CategoryRepoSearchResultAdapter.apply {
-                        submitList(
-                            repoSearchResult
-                        )
-                    })
+                        ScaleInAnimationAdapter(CategoryRepoSearchResultAdapter.apply {
+                            submitList(
+                                    repoSearchResult
+                            )
+                        })
                 initRecyclerViewWithLineDecoration(this@CategorySearchActivity)
             }
         } else displayNoSearchResults()
@@ -118,8 +140,8 @@ class CategorySearchActivity : BaseActivity() {
 
     private fun displayNoSearchResults() {
         showSnackbar(
-            rvRepository,
-            getString(R.string.label_no_times)
+                rvRepository,
+                getString(R.string.label_no_times)
         )
     }
 
@@ -127,7 +149,7 @@ class CategorySearchActivity : BaseActivity() {
         hideLoadingState()
         layoutError.show()
         showSnackbar(rvRepository, "${error.message}")
-        AppLogger.logD("activity",error.message)
+        AppLogger.logD("activity", error.message)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

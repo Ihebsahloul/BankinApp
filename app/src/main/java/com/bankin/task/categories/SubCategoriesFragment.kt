@@ -60,7 +60,8 @@ class SubCategoriesFragment : DialogFragment() {
 
     @InternalCoroutinesApi
     private fun fetchSubCategories( forceRefresh: Boolean = false) {
-       // viewModel.executeSubCategoryRepositorySearch( forceRefresh)
+
+         viewModel.executeSubCategoryRepositorySearch( forceRefresh)
     }
 
     @InternalCoroutinesApi
