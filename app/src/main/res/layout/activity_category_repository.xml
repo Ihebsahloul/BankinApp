@@ -8,14 +8,7 @@
 
     <include layout="@layout/layout_toolbar" />
 
-    <View
-        android:id="@+id/vToolbarDivider"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_divider_height"
-        android:background="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRepoRefresh"
@@ -24,7 +17,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vToolbarDivider">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <FrameLayout
             android:layout_width="match_parent"

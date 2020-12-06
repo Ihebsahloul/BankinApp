@@ -30,7 +30,7 @@ class BankinApp :  MultiDexApplication(), HasAndroidInjector {
     super.attachBaseContext(base)
   }
 
-  open fun getApplicationComponent(): AppComponent = appComponent
+  fun getApplicationComponent(): AppComponent = appComponent
 
   override fun androidInjector(): AndroidInjector<Any> = androidInjector
 

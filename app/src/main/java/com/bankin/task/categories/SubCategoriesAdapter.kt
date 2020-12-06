@@ -1,17 +1,16 @@
 package com.bankin.task.categories
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bankin.task.Utilities.circleCrop
 import com.bankin.task.Utilities.hide
-import com.bankin.task.Utilities.setDrawableBackgroundColor
 import com.bankin.task.Utilities.show
-import com.bankin.task.databinding.ItemResourceBinding
 import com.bankin.task.databinding.ItemSubCategoryBinding
 import com.bankin.task.models.ResourceUiModel
+import java.util.*
 
 class SubCategoriesAdapter(val onClick: (ResourceUiModel) -> Unit) :
         ListAdapter<ResourceUiModel, SubCategoriesAdapter.SubCategoriesViewHolder>(
@@ -48,8 +47,13 @@ class SubCategoriesAdapter(val onClick: (ResourceUiModel) -> Unit) :
         private fun populateData(modelRepository: ResourceUiModel) {
             binding.apply {
                 modelRepository.let { it ->
-                    it.name?.let { binding.tvRepoLang.setDrawableBackgroundColor(it) }
-                    it.name?.let { binding.ivUserAvatar?.circleCrop(it) }
+                    it.name?.let {/*binding.tvRepoLang.setDrawableBackgroundColor(it) */}
+                    it.name?.let {/*binding.ivUserAvatar?.circleCrop(it)*/
+                        val rnd = Random()
+                        val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+                        binding.ivSubCategoryIcon.setBackgroundColor(color)
+
+                    }
                     if (it.expand) {
                         groupExpansion.show()
                     } else {

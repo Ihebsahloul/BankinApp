@@ -1,20 +1,16 @@
 package com.bankin.task.categories
 
+import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View.inflate
 import android.view.ViewGroup
-import androidx.core.content.res.ColorStateListInflaterCompat.inflate
-import androidx.core.content.res.ComplexColorCompat.inflate
-import androidx.core.graphics.drawable.DrawableCompat.inflate
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bankin.task.Utilities.circleCrop
 import com.bankin.task.Utilities.hide
-import com.bankin.task.Utilities.setDrawableBackgroundColor
 import com.bankin.task.Utilities.show
 import com.bankin.task.databinding.ItemResourceBinding
 import com.bankin.task.models.ResourceUiModel
+import java.util.*
 
 class CategorySearchResultAdapter(val onClick: (ResourceUiModel) -> Unit) :
     ListAdapter<ResourceUiModel, CategorySearchResultAdapter.ResourceViewHolder>(
@@ -52,7 +48,12 @@ class CategorySearchResultAdapter(val onClick: (ResourceUiModel) -> Unit) :
             binding.apply {
                 modelRepository.let { it ->
                     it.name?.let { /*binding.tvRepoLang.setDrawableBackgroundColor(it) */}
-                    it.name?.let { /*binding.ivUserAvatar?.circleCrop(it) */}
+                    it.name?.let {
+                        val rnd = Random()
+                        val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+                        binding.ivCategoryIcon.setBackgroundColor(color)
+
+                        /*binding.ivUserAvatar?.circleCrop(it) */}
                     if (it.expand) {
                         groupExpansion.show()
                     } else {

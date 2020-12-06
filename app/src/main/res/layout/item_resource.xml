@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_10dp"
-        android:layout_marginBottom="@dimen/dimen_2dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
         android:layout_marginStart="@dimen/dimen_3dp"
         android:layout_marginEnd="@dimen/dimen_3dp"
         app:cardCornerRadius="5dp"
@@ -30,7 +30,7 @@
             android:padding="@dimen/margin_default">
 
             <com.bankin.task.view.CircleImageView
-                android:id="@+id/ivUserAvatar"
+                android:id="@+id/ivCategoryIcon"
                 android:layout_width="@dimen/dimen_45dp"
                 android:layout_height="@dimen/dimen_45dp"
                 android:contentDescription="Content cateogry description"
@@ -40,7 +40,7 @@
 
 
             <com.bankin.task.view.CustomTextView
-                android:id="@+id/tvRepoName"
+                android:id="@+id/tvCategoryName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -49,8 +49,8 @@
                 android:text="@{searchedResource.name}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/md_text_size_medium"
-                app:layout_constraintStart_toEndOf="@+id/ivUserAvatar"
-                app:layout_constraintBaseline_toBaselineOf="@id/ivUserAvatar"
+                app:layout_constraintStart_toEndOf="@+id/ivCategoryIcon"
+                app:layout_constraintBaseline_toBaselineOf="@id/ivCategoryIcon"
                 app:textFont="bold"
                 android:fontFamily="@font/googlesans_bold"
                 tools:text="Category Name" />
@@ -64,9 +64,8 @@
                 android:text="@string/sub_category_text"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/md_text_size_small"
-                app:layout_constraintEnd_toEndOf="@id/tvRepoName"
-                app:layout_constraintStart_toStartOf="@+id/tvRepoName"
-                app:layout_constraintTop_toBottomOf="@id/tvRepoName"
+                app:layout_constraintStart_toStartOf="@+id/tvCategoryName"
+                app:layout_constraintTop_toBottomOf="@id/tvCategoryName"
                 app:textFont="regular"
                 tools:text="Repo Desc" />
 

@@ -61,7 +61,7 @@ class CategoryRepositoryViewModel @Inject constructor(
     }
 
     fun executeSubCategoryRepositorySearch(parentId : Int?  ,forceRefresh: Boolean = false) {
-        _uiState.value = Loading
+        //_uiState.value = Loading
         viewModelScope.launch(handler) {
             CategoryRepositoryUseCase(false).collect { results ->
                 var subCategoriesList : ArrayList<Resource> = ArrayList()
@@ -80,7 +80,7 @@ class CategoryRepositoryViewModel @Inject constructor(
                 }
                 _searchSubCategoryRepository.value = subCategoriesList.map { it.toPresentation() } }
 
-            _uiState.value = Success
+       //     _uiState.value = Success
         }
     }
 

@@ -2,26 +2,18 @@ package com.bankin.task.categories
 
 import android.os.Bundle
 import android.view.*
-import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.bankin.data.utils.AppLogger
 import com.bankin.task.R
 import com.bankin.task.Utilities.*
-import com.bankin.task.commons.Error
-import com.bankin.task.commons.Loading
 import com.bankin.task.commons.Success
 import com.bankin.task.models.ResourceUiModel
-import com.bankin.task.models.SortType
 import dagger.android.AndroidInjection
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import kotlinx.android.synthetic.main.activity_category_repository.*
 import kotlinx.android.synthetic.main.fragment_sub_categories.*
-import kotlinx.android.synthetic.main.layout_status_loading.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import javax.inject.Inject
 import kotlin.properties.Delegates
@@ -49,14 +41,14 @@ class SubCategoriesFragment : DialogFragment() {
     private fun observeUiState() {
         subCategoryViewModel.uiState.observe(this, Observer {
             when (it) {
-                is Success -> fetchSubCategories(parentId,false)
+                is Success -> fetchSubCategories()
             }
         })
     }
 
 
     @InternalCoroutinesApi
-    private fun fetchSubCategories(parentId : Int?, forceRefresh: Boolean = false) {
+    private fun fetchSubCategories() {
 
       //   viewModel.executeSubCategoryRepositorySearch(parentId ,forceRefresh)
     }
@@ -65,7 +57,7 @@ class SubCategoriesFragment : DialogFragment() {
     private fun observeSubCategoriesResults() {
 
         viewModel.searchSubCategories.observe(this, Observer {
-            displaySubCategories(viewModel?.searchSubCategories.value!!)
+            displaySubCategories(viewModel.searchSubCategories.value!!)
         })
 
     }
@@ -132,7 +124,7 @@ class SubCategoriesFragment : DialogFragment() {
     override fun onStart() {
         super.onStart()
         dialog?.window?.setLayout(
-                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT
         )
     }

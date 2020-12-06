@@ -162,7 +162,7 @@ class CategorySearchActivity : BaseActivity() {
         return when (item.itemId) {
             R.id.action_sort_by_stars -> {
                 CategoryRepositoryViewModel.sortTrendingRepoResult(SortType.SortByValue)
-                showSnackbar(rvRepository, getString(R.string.label_sorted_by_star))
+                showSnackbar(rvRepository, getString(R.string.label_sorted_by_value))
                 true
             }
             R.id.action_sort_by_name -> {

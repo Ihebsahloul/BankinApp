@@ -24,7 +24,7 @@ fun convertedDate(inputPattern: String, outputPattern: String, stringDate: Strin
     val originalFormat = SimpleDateFormat(inputPattern, Locale.US)
     val targetFormat = SimpleDateFormat(outputPattern, Locale.US)
     val requiredFormat = originalFormat.parse(stringDate)
-    return targetFormat.format(requiredFormat)
+    return targetFormat.format(requiredFormat!!)
 }
 
 fun isTimeWithInInterval(valueToCheckInSeconds: Long, startTime: Long, endTime: Long): Boolean {
