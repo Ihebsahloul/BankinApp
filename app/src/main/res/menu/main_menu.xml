@@ -11,6 +11,7 @@
         android:id="@+id/action_sort_by_name"
         android:title="@string/label_sort_by_name"
         app:showAsAction="never" />
+
     <item android:id="@+id/search_view"
         android:title="@string/search_text"
         android:icon="@android:drawable/ic_menu_search"

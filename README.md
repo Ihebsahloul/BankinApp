@@ -1,4 +1,4 @@
-# Bankin App Demo [mvvmclean]
+# Bankin App Demo 
 
 An Android app consuming [Banking App API](https://raw.githubusercontent.com/bankin-engineering/challenge-android/master/categories.json) to display the expenses categories and sub categories
 of theb Bankin' Application. It has been built using kotlin with clean architecture principles, Repository Pattern and MVVM
@@ -22,20 +22,16 @@ Min API Level Supported : 19
 
 ## Architecture
 
-The Application is split into a three layer architecture inorder to provide clean separation of concerns - making the code easier to navigate and maintain.
+The Application is split into a three layer architecture in order to provide clean separation of concerns .
 - Data - Layer that holds APIs, Database, Cache
 - Domain - Layer that holds Use Cases, and Model Objects. Business logic happens here.
 - Application - Layer that holds presentation, Android components, Viewmodels, Dagger components/modules handles Dependency Injection, etc. MVVM exists at this layer.
 
-![Data Flow Diagram](media/arch-flow.png)
-
-The three layered architectural approach is majorly guided by clean architecture which provides
-a clear separation of concerns.
 
 ## Features
  
- - Trending Repository Listing
- - Repository sorting by Value and name
+ - Bankin' categories Listing
+ - Cagtegories sorting by Value and name
  - Pull to refresh category
  - Offline Storage ( Scheduled repo remote controller syncing, App will sync with backend server in every 2hrs )
  
@@ -59,7 +55,6 @@ Following are the Libraries used:
 - [Mockito](https://site.mockito.org/) - Mocking framework used in unit tests.
 - [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) - Library Support for coroutines, provides `runBlocking` coroutine builder used in tests
 - [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) - web server for testing HTTP clients.
-- [Leak Canary](https://square.github.io/leakcanary/) - Leak Detection Library
 - [Espresso](https://developer.android.com/training/testing/espresso) - Test framework to write UI Tests
 - [recyclerview-animators](https://github.com/wasabeef/recyclerview-animators) - Recycler View Animations
 - [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room) - Robust database access while harnessing the full power of SQLite

@@ -38,10 +38,10 @@
     <string name="action_retry">Retry</string>
 
     <!-- Trending Repo Search -->
-    <string name="label_sort_by_stars">Sort by stars</string>
+    <string name="label_sort_by_stars">Sort by values</string>
     <string name="label_sort_by_name">Sort by name</string>
-    <string name="label_sorted_by_star">Sorted by repository stars</string>
-    <string name="label_sorted_repo_name">Sorted by repository name</string>
+    <string name="label_sorted_by_value">Sorted by category stars</string>
+    <string name="label_sorted_repo_name">Sorted by category name</string>
     <string name="title_bankin">Bankin\'</string>
 
     <!--  Data Binding String Templates-->
@@ -50,4 +50,5 @@
     <string name="label_unknown">Unknown</string>
     <string name="bankin_text">Bankin\'</string>
     <string name="content_cateogry_description">Content cateogry description</string>
+    <string name="sub_category_text">Sous catégorie</string>
 </resources>

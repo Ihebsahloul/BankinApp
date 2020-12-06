@@ -51,7 +51,7 @@ class CategorySearchResultAdapter(val onClick: (ResourceUiModel) -> Unit) :
         private fun populateData(modelRepository: ResourceUiModel) {
             binding.apply {
                 modelRepository.let { it ->
-                    it.name?.let { binding.tvRepoLang.setDrawableBackgroundColor(it) }
+                    it.name?.let { /*binding.tvRepoLang.setDrawableBackgroundColor(it) */}
                     it.name?.let { /*binding.ivUserAvatar?.circleCrop(it) */}
                     if (it.expand) {
                         groupExpansion.show()

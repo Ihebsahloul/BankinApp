@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bankin.task.R
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.layout_toolbar.*
@@ -38,7 +39,8 @@ abstract class BaseActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         toolbarTitle.text = title
-        toolbar.setNavigationIcon(R.drawable.ic_home_up)
+        toolbar.setNavigationIcon(R.drawable.ic_back_arrow)
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(getApplicationContext(),R.drawable.menu_ic))
         toolbar.setNavigationOnClickListener { supportFinishAfterTransition() }
     }
 
