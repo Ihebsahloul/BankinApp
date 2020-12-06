@@ -49,4 +49,5 @@
     <string name="label_no_times">No Items Found</string>
     <string name="label_unknown">Unknown</string>
     <string name="bankin_text">Bankin\'</string>
+    <string name="content_cateogry_description">Content cateogry description</string>
 </resources>

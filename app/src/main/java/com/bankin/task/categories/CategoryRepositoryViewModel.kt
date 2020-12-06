@@ -4,6 +4,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.bankin.data.utils.AppLogger
 import com.bankin.domain.countries.model.Resource
 import com.bankin.domain.usecase.ResourceRepositoryUseCase
 import com.bankin.task.commons.Loading
@@ -23,19 +24,23 @@ class CategoryRepositoryViewModel @Inject constructor(
     private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Main)
     private var searchJob: Job? = null
 
-    val name = MutableLiveData<Int>()
+    val id = MutableLiveData<Int>()
 
     val searchResultsCategories: LiveData<List<ResourceUiModel>>
         get() = _searchResultsCategoryRepository
 
-    private var _searchResultsCategoryRepository: MutableLiveData<List<ResourceUiModel>> =
-        MutableLiveData()
-
     val searchSubCategories: LiveData<List<ResourceUiModel>>
         get() = _searchSubCategoryRepository
 
+    private var _searchResultsCategoryRepository: MutableLiveData<List<ResourceUiModel>> =
+        MutableLiveData()
+
     private var _searchSubCategoryRepository: MutableLiveData<List<ResourceUiModel>> =
             MutableLiveData()
+
+
+
+
 
 
     fun executeCategoryRepositorySearch(forceRefresh: Boolean = false) {
@@ -67,7 +72,14 @@ class CategoryRepositoryViewModel @Inject constructor(
                         subCategoriesList.add( results.get(i))
                     }
                 }
+                for (i in 0..subCategoriesList.size-1)
+                {
+
+                    AppLogger.logE("viewmodel", subCategoriesList.get(i).name)
+
+                }
                 _searchSubCategoryRepository.value = subCategoriesList.map { it.toPresentation() } }
+
             _uiState.value = Success
         }
     }
@@ -106,8 +118,8 @@ class CategoryRepositoryViewModel @Inject constructor(
         }
     }
 
-    fun sendName(text: String) {
-        name.value = text
+    fun sendId(id: Int?) {
+        this.id.value = id
     }
 
     override fun onDestroy(lifecycleOwner: LifecycleOwner) {

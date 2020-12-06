@@ -14,7 +14,7 @@
         android:id="@+id/containerResource"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
+        android:background="@color/grey_bg"
         android:padding="@dimen/margin_default">
 
         <ImageView
@@ -127,7 +127,7 @@
             android:id="@+id/groupExpansion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             app:constraint_referenced_ids="tvRepoDesc,tvRepoStars,tvRepoFork,tvRepoLang" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

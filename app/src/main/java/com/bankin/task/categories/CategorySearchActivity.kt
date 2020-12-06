@@ -1,10 +1,8 @@
 package com.bankin.task.categories
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -30,23 +28,25 @@ class CategorySearchActivity : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val CategoryRepositoryViewModel: CategoryRepositoryViewModel by viewModels { viewModelFactory }
+    val CategoryRepositoryViewModel: CategoryRepositoryViewModel by viewModels { viewModelFactory }
 
     private var mBackPressed: Long = 0
-    public lateinit var subDialog : SubCategoriesFragment
+
+    lateinit var subDialog : SubCategoriesFragment
 
     @InternalCoroutinesApi
     private val CategoryRepoSearchResultAdapter: CategorySearchResultAdapter by lazy {
         CategorySearchResultAdapter {
             //           launchUrl(this, it.resource_uri)
 
-            CategoryRepositoryViewModel.name.observe(this, Observer {
-                CategoryRepositoryViewModel.name = it
-            })
 
+
+            /*CategoryRepositoryViewModel.id.observe(this, Observer {
+                CategoryRepositoryViewModel.id.value = it
+            })*/
             fetchSubCategories(it.id,forceRefresh = true)
-            subDialog = SubCategoriesFragment()
-            subDialog.show(supportFragmentManager,"theDialog")
+
+            SubCategoriesFragment.newInstance(it.id!!,"title substring").show(supportFragmentManager,SubCategoriesFragment.TAG)
 
         }
 
@@ -100,6 +100,7 @@ class CategorySearchActivity : BaseActivity() {
     @InternalCoroutinesApi
     private fun fetchCategories(forceRefresh: Boolean = true) {
         CategoryRepositoryViewModel.executeCategoryRepositorySearch(forceRefresh)
+       // CategoryRepositoryViewModel.executeSubCategoryRepositorySearch(303,false)
     }
     @InternalCoroutinesApi
     private fun fetchSubCategories(parentId : Int? , forceRefresh: Boolean = true) {

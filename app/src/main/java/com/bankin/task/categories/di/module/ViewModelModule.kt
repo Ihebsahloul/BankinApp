@@ -14,7 +14,7 @@ abstract class ViewModelModule {
     @IntoMap
     @Binds
     @ViewModelKey(CategoryRepositoryViewModel::class)
-    abstract fun bindCharacterSearchViewModel(trendingRepositoryViewModel: CategoryRepositoryViewModel): ViewModel
+    abstract fun bindCharacterSearchViewModel(categoriesViewModel: CategoryRepositoryViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

@@ -52,7 +52,7 @@ class CategorySearchResultAdapter(val onClick: (ResourceUiModel) -> Unit) :
             binding.apply {
                 modelRepository.let { it ->
                     it.name?.let { binding.tvRepoLang.setDrawableBackgroundColor(it) }
-                    it.name?.let { binding.ivUserAvatar?.circleCrop(it) }
+                    it.name?.let { /*binding.ivUserAvatar?.circleCrop(it) */}
                     if (it.expand) {
                         groupExpansion.show()
                     } else {

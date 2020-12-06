@@ -16,7 +16,7 @@ class Converters {
      * Convert a json to a parent
      */
     @TypeConverter
-    fun fromJsonToParent(parentJson: String?): Parent {
+    fun fromJsonToParent(parentJson: String?): Parent? {
         val type = object : TypeToken<Parent>() {}.type
         return Gson().fromJson<Parent>(parentJson, type)
     }

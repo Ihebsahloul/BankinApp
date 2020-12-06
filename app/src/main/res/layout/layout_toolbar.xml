@@ -7,18 +7,34 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary">
 
+
+    <LinearLayout
+        android:id="@+id/viewCard_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_50dp"
+        android:orientation="horizontal">
+    <com.bankin.task.view.CircleImageView
+        android:id="@+id/country_flag_iv"
+        android:layout_width="@dimen/dimen_35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="@dimen/dimen_35dp"
+        android:src="@mipmap/app_icon"
+        />
     <com.bankin.task.view.CustomTextView
         android:id="@+id/toolbarTitle"
         android:layout_width="wrap_content"
+        android:layout_marginStart="@dimen/dimen_15dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:gravity="center"
         android:lines="1"
         android:textSize="@dimen/dimen_25sp"
         app:textFont="medium"
         android:fontFamily="@font/googlesans_medium"
         android:textColor="@color/white"
-        tools:text="Bankin'" />
+        tools:text="@string/bankin_text" />
 
+    </LinearLayout>
 </androidx.appcompat.widget.Toolbar>
