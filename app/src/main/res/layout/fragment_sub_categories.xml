@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_dialog_bg"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:fontFamily="@font/googlesans_bold"
+            android:maxLines="1"
+            android:id="@+id/sub_categories_title"
+            android:textAlignment="center"
+            android:text="@string/sub_categories_title"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/dimen_20sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSubCatregory"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintHeight_default="wrap"
+        app:layout_constraintWidth_default="spread"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_layout"
         tools:listitem="@layout/item_sub_category" />
 
 
-</RelativeLayout>
+</LinearLayout>

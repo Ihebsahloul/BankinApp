@@ -1,22 +1,29 @@
 package com.bankin.task.categories
 
+import android.R.attr.data
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.bankin.task.R
-import com.bankin.task.Utilities.*
+import com.bankin.task.Utilities.initRecyclerViewWithLineDecoration
+import com.bankin.task.Utilities.showSnackbar
 import com.bankin.task.commons.Success
 import com.bankin.task.models.ResourceUiModel
 import dagger.android.AndroidInjection
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.fragment_sub_categories.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import javax.inject.Inject
 import kotlin.properties.Delegates
+
 
 class SubCategoriesFragment : DialogFragment() {
 
@@ -27,14 +34,16 @@ class SubCategoriesFragment : DialogFragment() {
 
     private lateinit var viewModel: CategoryRepositoryViewModel
 
-    private var  parentId by Delegates.notNull<Int>()
+    private lateinit var subCategoriesList: List<ResourceUiModel>
+
+    private var parentId by Delegates.notNull<Int>()
 
 
     @InternalCoroutinesApi
     private val SubCategoriesAdapter: SubCategoriesAdapter by lazy {
         SubCategoriesAdapter {
 
-       }
+        }
     }
 
     @InternalCoroutinesApi
@@ -50,7 +59,7 @@ class SubCategoriesFragment : DialogFragment() {
     @InternalCoroutinesApi
     private fun fetchSubCategories() {
 
-      //   viewModel.executeSubCategoryRepositorySearch(parentId ,forceRefresh)
+        //   viewModel.executeSubCategoryRepositorySearch(parentId ,forceRefresh)
     }
 
     @InternalCoroutinesApi
@@ -68,14 +77,17 @@ class SubCategoriesFragment : DialogFragment() {
 
             rvSubCatregory.apply {
                 adapter =
-                        ScaleInAnimationAdapter(SubCategoriesAdapter.apply {
+                        SubCategoriesAdapter.apply {
                             submitList(
                                     repoSearchResult
                             )
-                        })
+                        }
                 initRecyclerViewWithLineDecoration(this@SubCategoriesFragment.requireContext())
             }
+
+            subCategoriesList = repoSearchResult
         } else displayNoSearchResults()
+
     }
 
     private fun displayNoSearchResults() {
@@ -92,7 +104,7 @@ class SubCategoriesFragment : DialogFragment() {
         private const val KEY_TITLE = "KEY_TITLE"
         private const val KEY_SUBTITLE = "KEY_SUBTITLE"
 
-        fun newInstance(title: Int, subTitle: String): SubCategoriesFragment {
+        fun newInstance(title: Int, subTitle: String?): SubCategoriesFragment {
             val args = Bundle()
             args.putInt(KEY_TITLE, title)
             args.putString(KEY_SUBTITLE, subTitle)
@@ -113,12 +125,26 @@ class SubCategoriesFragment : DialogFragment() {
 
     @InternalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        dialog?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         AndroidInjection.inject(activity!!)
         viewModel = ViewModelProviders.of(activity!!).get(CategoryRepositoryViewModel::class.java)
-       parentId = arguments?.getInt(KEY_TITLE)!!
+        parentId = arguments?.getInt(KEY_TITLE)!!
+        sub_categories_title.text = arguments?.getString(KEY_SUBTITLE)
+
         observeSubCategoriesResults()
+
         super.onViewCreated(view, savedInstanceState)
 
+    }
+
+    fun clear(data : ArrayList<ResourceUiModel>) {
+        val size: Int = data.size
+        if (size > 0) {
+            for (i in 0 until size) {
+                data.removeAt(0)
+            }
+           // notifyItemRangeRemoved(0, size)
+        }
     }
 
     override fun onStart() {
@@ -127,6 +153,12 @@ class SubCategoriesFragment : DialogFragment() {
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT
         )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        clear(subCategoriesList as ArrayList<ResourceUiModel>)
+
     }
 
 }

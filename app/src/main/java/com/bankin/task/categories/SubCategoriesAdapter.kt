@@ -51,7 +51,7 @@ class SubCategoriesAdapter(val onClick: (ResourceUiModel) -> Unit) :
                     it.name?.let {/*binding.ivUserAvatar?.circleCrop(it)*/
                         val rnd = Random()
                         val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-                        binding.ivSubCategoryIcon.setBackgroundColor(color)
+                        binding.ivSubCategoryIcon.setColorFilter(color)
 
                     }
                     if (it.expand) {

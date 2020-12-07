@@ -46,7 +46,7 @@ class CategorySearchActivity : BaseActivity() {
             })*/
             fetchSubCategories(it.id,forceRefresh = true)
 
-            SubCategoriesFragment.newInstance(it.id!!,"title substring").show(supportFragmentManager,SubCategoriesFragment.TAG)
+            SubCategoriesFragment.newInstance(it.id!!,it.name).show(supportFragmentManager,SubCategoriesFragment.TAG)
 
         }
 

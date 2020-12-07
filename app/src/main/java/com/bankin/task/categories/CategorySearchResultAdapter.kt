@@ -51,9 +51,8 @@ class CategorySearchResultAdapter(val onClick: (ResourceUiModel) -> Unit) :
                     it.name?.let {
                         val rnd = Random()
                         val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-                        binding.ivCategoryIcon.setBackgroundColor(color)
-
-                        /*binding.ivUserAvatar?.circleCrop(it) */}
+                        binding.ivCategoryIcon.setColorFilter(color)
+}
                     if (it.expand) {
                         groupExpansion.show()
                     } else {

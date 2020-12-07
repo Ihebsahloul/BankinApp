@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Bankin App</string>
-    <string name="all_around_the_world_text">All around the world</string>
+    <string name="sub_categories_title">Sous Catégories</string>
     <string name="stootie_text">Stootie</string>
     <string name="search_text">Search</string>
     <string name="search_hint">Search a country …</string>
