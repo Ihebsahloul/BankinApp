@@ -157,7 +157,7 @@ class SubCategoriesFragment : DialogFragment() {
 
     override fun onPause() {
         super.onPause()
-        clear(subCategoriesList as ArrayList<ResourceUiModel>)
+      //  clear(subCategoriesList as ArrayList<ResourceUiModel>)
 
     }
 

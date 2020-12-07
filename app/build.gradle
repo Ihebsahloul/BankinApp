@@ -88,7 +88,23 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$dagger2_vesion"
     kapt "com.google.dagger:dagger-compiler:$dagger2_vesion"
 
-
+    //test dependencies
+    implementation "junit:junit:$junitVersion"
+    implementation "androidx.test.ext:junit:$androidxJunitVersion"
+    implementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    implementation "androidx.test:runner:$runnerVersion"
+    implementation "org.mockito:mockito-core:$mockitoVersion"
+    implementation "com.google.truth:truth:$truthVersion"
+    implementation "org.mockito:mockito-inline:$mockitoInlineVersion"
+    implementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+    implementation "org.robolectric:robolectric:$robolectricVersion"
+    implementation "androidx.test:core:$androidxTestCoreVersion"
+    implementation "androidx.test:rules:$rulesVersion"
+    implementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    implementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    implementation "com.google.dagger:dagger-compiler:$dagger2_vesion"
+    implementation "androidx.arch.core:core-testing:$archComponentTestVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesCoreVersion"
 
     implementation "androidx.room:room-runtime:$roomVersion"
 

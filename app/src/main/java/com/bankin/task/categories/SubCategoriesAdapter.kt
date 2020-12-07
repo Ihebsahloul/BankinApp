@@ -37,6 +37,7 @@ class SubCategoriesAdapter(val onClick: (ResourceUiModel) -> Unit) :
             populateData(modelRepository)
             binding.containerSubCategory.setOnClickListener {
                 expandCollapse(modelRepository, position)
+                onClick(modelRepository)
             }
             binding.containerSubCategory.setOnLongClickListener {
                 onClick(modelRepository)
