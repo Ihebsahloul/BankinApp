@@ -13,7 +13,7 @@ internal class CategoriesRequestDispatcher : Dispatcher() {
 
     override fun dispatch(request: RecordedRequest): MockResponse {
         return when (request.path) {
-            "/categories.json" -> {
+            "categories.json" -> {
                 MockResponse()
                     .setResponseCode(HttpURLConnection.HTTP_OK)
                     .setBody(searchSuccess)

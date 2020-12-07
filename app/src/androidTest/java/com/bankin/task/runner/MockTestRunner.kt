@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.StrictMode
 import androidx.test.runner.AndroidJUnitRunner
 import com.bankin.task.BankinApp
-import com.mvvmclean.trendingrepos.GithubTrendingReposTestApplication
+import com.bankin.task.CategoriesTestApplication
 
 
 class MockTestRunner:AndroidJUnitRunner() {
@@ -21,6 +21,6 @@ class MockTestRunner:AndroidJUnitRunner() {
         className: String?,
         context: Context?
     ): Application {
-        return super.newApplication(cl, BankinApp::class.java.name, context)
+        return super.newApplication(cl, CategoriesTestApplication::class.java.name, context)
     }
 }

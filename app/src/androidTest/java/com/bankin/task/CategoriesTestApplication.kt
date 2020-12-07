@@ -1,11 +1,13 @@
-package com.mvvmclean.trendingrepos
+package com.bankin.task
 
 import com.bankin.task.BankinApp
 import com.bankin.task.categories.di.component.AppComponent
 import com.bankin.task.categories.di.component.DaggerAppComponent
+import com.bankin.task.di.DaggerTestApplicationComponent
+import dagger.android.HasAndroidInjector
 
 
-class CategoriesTestApplication : BankinApp() {
+class CategoriesTestApplication : BankinApp(), HasAndroidInjector {
 
     override fun onCreate() {
         super.onCreate()
@@ -13,7 +15,7 @@ class CategoriesTestApplication : BankinApp() {
     }
 
     override fun getApplicationComponent(): AppComponent {
-        return DaggerAppComponent.factory()
+        return DaggerTestApplicationComponent.factory()
             .create(applicationContext)
     }
 

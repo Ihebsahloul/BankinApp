@@ -41,6 +41,6 @@ class FakeCategoriesApiModule {
 
     @Provides
     @Named("baseUrl")
-    fun provideBaseUrl(): String = "http://localhost:8080/"
+    fun provideBaseUrl(): String = "https://raw.githubusercontent.com/bankin-engineering/challenge-android/master/"
 
 }

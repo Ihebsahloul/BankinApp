@@ -62,7 +62,6 @@ dependencies {
     implementation 'androidx.fragment:fragment-ktx:1.1.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleExtensionsVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensionsVersion"
-    implementation  "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleExtensionsVersion"
     implementation  "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion"
     implementation "com.facebook.shimmer:shimmer:$shimmerAnimationVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
@@ -83,30 +82,31 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
     implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
     testImplementation "junit:junit:${rootProject.ext.junit_version}"
+    implementation "androidx.room:room-runtime:$roomVersion"
     //dagger support
     implementation "com.google.dagger:dagger-android:$dagger2_vesion"
     kapt "com.google.dagger:dagger-android-processor:$dagger2_vesion"
     kapt "com.google.dagger:dagger-compiler:$dagger2_vesion"
 
     //test dependencies
-    implementation "junit:junit:$junitVersion"
-    implementation "androidx.test.ext:junit:$androidxJunitVersion"
-    implementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    implementation "androidx.test:runner:$runnerVersion"
-    implementation "org.mockito:mockito-core:$mockitoVersion"
-    implementation "com.google.truth:truth:$truthVersion"
-    implementation "org.mockito:mockito-inline:$mockitoInlineVersion"
-    implementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
-    implementation "org.robolectric:robolectric:$robolectricVersion"
-    implementation "androidx.test:core:$androidxTestCoreVersion"
-    implementation "androidx.test:rules:$rulesVersion"
-    implementation "androidx.test.espresso:espresso-intents:$espressoVersion"
-    implementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
-    implementation "com.google.dagger:dagger-compiler:$dagger2_vesion"
-    implementation "androidx.arch.core:core-testing:$archComponentTestVersion"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesCoreVersion"
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test:runner:$runnerVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "com.google.truth:truth:$truthVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoInlineVersion"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    androidTestImplementation "androidx.test:core:$androidxTestCoreVersion"
+    androidTestImplementation "androidx.test:rules:$rulesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    testImplementation "androidx.arch.core:core-testing:$archComponentTestVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesCoreVersion"
+    kaptAndroidTest "com.google.dagger:dagger-android-processor:$dagger2_vesion"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger2_vesion"
 
-    implementation "androidx.room:room-runtime:$roomVersion"
 
 
 }
