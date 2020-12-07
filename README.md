@@ -79,7 +79,7 @@ Following are the Libraries used:
 - App Screens
 
 <p float="center">
-  <img src="media/catgegorieslist.png" title="Categories Loading" width="285" />
+  <img src="media/categorieslist.png" title="Categories Loading" width="285" />
   <img src="media/subcategorieslist.png" title="Sub Categories List" width="285" /> 
   <img src="media/sortingaction.png" title="Categories Sort" width="285" />
   <img src="media/errorlayout.png" title="Error Retry" width="285" />
