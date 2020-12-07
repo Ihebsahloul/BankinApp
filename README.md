@@ -73,25 +73,16 @@ Following are the Libraries used:
 
 ## Screenshots
 
-- Architecure
-
-<p float="center">
-  <img src="media/arch-presentation.png" title="Presentation Layer" width="285" />
-  <img src="media/arch-domain.png" title="Domain Layer" width="285" align="top" />
-  <img src="media/arch-data.png" title="Data Layer" width="285" align="top"/> 
-</p>
 
 ##
 
 - App Screens
 
 <p float="center">
-  <img src="media/app-screen-loading.png" title="Repository Loading" width="285" />
-  <img src="media/app-screen-list.png" title="Repositories List" width="285" /> 
-  <img src="media/app-screen-expanded.png" title="Repositories List Expanded" width="285" />
-  <img src="media/app-screen-sort.png" title="Repo Sort" width="285" />
-  <img src="media/app-screen-reload.png" title="Repository Refresh" width="285" />
-  <img src="media/app-screen-retry.png" title="Error Retry" width="285" />
+  <img src="media/catgegorieslist.png" title="Categories Loading" width="285" />
+  <img src="media/subcategorieslist.png" title="Sub Categories List" width="285" /> 
+  <img src="media/sortingaction.png" title="Categories Sort" width="285" />
+  <img src="media/errorlayout.png" title="Error Retry" width="285" />
 </p>
 
 
