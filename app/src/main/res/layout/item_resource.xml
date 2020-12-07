@@ -12,7 +12,6 @@
     </data>
 
     <androidx.cardview.widget.CardView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_10dp"
@@ -61,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_repo_desc_margin"
                 android:maxLines="2"
-                android:text="@string/sub_category_text"
+                android:text="@string/category_text"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/md_text_size_small"
                 app:layout_constraintStart_toStartOf="@+id/tvCategoryName"
@@ -75,7 +74,7 @@
                 android:id="@+id/groupExpansion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

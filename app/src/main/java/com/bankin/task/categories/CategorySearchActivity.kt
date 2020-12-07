@@ -136,7 +136,9 @@ class CategorySearchActivity : BaseActivity() {
                         })
                 initRecyclerViewWithLineDecoration(this@CategorySearchActivity)
             }
-        } else displayNoSearchResults()
+        } else
+
+            displayNoSearchResults()
     }
 
     private fun displayNoSearchResults() {

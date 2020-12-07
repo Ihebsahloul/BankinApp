@@ -37,9 +37,10 @@ class CategorySearchResultAdapter(val onClick: (ResourceUiModel) -> Unit) :
             populateData(modelRepository)
             binding.containerResource.setOnClickListener {
                 expandCollapse(modelRepository, position)
+                onClick(modelRepository)
             }
             binding.containerResource.setOnLongClickListener {
-                onClick(modelRepository)
+               // onClick(modelRepository)
                 return@setOnLongClickListener true
             }
         }
@@ -47,14 +48,13 @@ class CategorySearchResultAdapter(val onClick: (ResourceUiModel) -> Unit) :
         private fun populateData(modelRepository: ResourceUiModel) {
             binding.apply {
                 modelRepository.let { it ->
-                    it.name?.let { /*binding.tvRepoLang.setDrawableBackgroundColor(it) */}
                     it.name?.let {
                         val rnd = Random()
                         val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
                         binding.ivCategoryIcon.setColorFilter(color)
 }
                     if (it.expand) {
-                        groupExpansion.show()
+                        groupExpansion.hide()
                     } else {
                         groupExpansion.hide()
                     }

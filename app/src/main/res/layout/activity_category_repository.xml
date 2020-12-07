@@ -5,7 +5,6 @@
     android:id="@+id/search_results_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <include layout="@layout/layout_toolbar" />
 
 
@@ -51,6 +50,7 @@
                 android:id="@+id/vInvisible"
                 android:layout_width="@dimen/md_width_height_size_micro"
                 android:layout_height="@dimen/md_width_height_size_micro"
+                android:visibility="gone"
                 android:background="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

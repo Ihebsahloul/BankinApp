@@ -14,12 +14,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.bankin.task.R
+import com.bankin.task.Utilities.hide
 import com.bankin.task.Utilities.initRecyclerViewWithLineDecoration
+import com.bankin.task.Utilities.show
 import com.bankin.task.Utilities.showSnackbar
+import com.bankin.task.commons.Error
+import com.bankin.task.commons.Loading
 import com.bankin.task.commons.Success
 import com.bankin.task.models.ResourceUiModel
 import dagger.android.AndroidInjection
+import kotlinx.android.synthetic.main.activity_category_repository.*
 import kotlinx.android.synthetic.main.fragment_sub_categories.*
+import kotlinx.android.synthetic.main.layout_error_status_notifier.*
+import kotlinx.android.synthetic.main.layout_status_loading.*
 import kotlinx.coroutines.InternalCoroutinesApi
 import javax.inject.Inject
 import kotlin.properties.Delegates
@@ -34,7 +41,7 @@ class SubCategoriesFragment : DialogFragment() {
 
     private lateinit var viewModel: CategoryRepositoryViewModel
 
-    private lateinit var subCategoriesList: List<ResourceUiModel>
+    private lateinit var subCategoriesList: java.util.ArrayList<ResourceUiModel>
 
     private var parentId by Delegates.notNull<Int>()
 
@@ -46,20 +53,30 @@ class SubCategoriesFragment : DialogFragment() {
         }
     }
 
-    @InternalCoroutinesApi
+    /*@InternalCoroutinesApi
     private fun observeUiState() {
         subCategoryViewModel.uiState.observe(this, Observer {
             when (it) {
                 is Success -> fetchSubCategories()
             }
         })
-    }
+    }*/
 
 
     @InternalCoroutinesApi
     private fun fetchSubCategories() {
 
         //   viewModel.executeSubCategoryRepositorySearch(parentId ,forceRefresh)
+    }
+
+    private fun observeUiState() {
+        viewModel.uiState.observe(this, Observer {
+            when (it) {
+                is Loading -> displayLoadingState()
+                is Success -> hideLoadingState()
+                is Error -> null
+            }
+        })
     }
 
     @InternalCoroutinesApi
@@ -74,6 +91,9 @@ class SubCategoriesFragment : DialogFragment() {
     @InternalCoroutinesApi
     private fun displaySubCategories(repoSearchResult: List<ResourceUiModel>) {
         if (repoSearchResult.isNotEmpty()) {
+            hideLoadingState()
+           // subCategoriesList = repoSearchResult as java.util.ArrayList<ResourceUiModel>
+
 
             rvSubCatregory.apply {
                 adapter =
@@ -85,8 +105,10 @@ class SubCategoriesFragment : DialogFragment() {
                 initRecyclerViewWithLineDecoration(this@SubCategoriesFragment.requireContext())
             }
 
-            subCategoriesList = repoSearchResult
-        } else displayNoSearchResults()
+            subCategoriesList = repoSearchResult as java.util.ArrayList<ResourceUiModel>
+        } else {
+            displayLoadingState()
+        }
 
     }
 
@@ -95,6 +117,32 @@ class SubCategoriesFragment : DialogFragment() {
                 rvSubCatregory,
                 getString(R.string.label_no_times)
         )
+    }
+
+    private fun displayLoadingState() {
+        rvSubCatregory.hide()
+        containerShimmer.show()
+        containerShimmer.startShimmer()
+        containerShimmer.showShimmer(true)
+    }
+
+    private fun hideLoadingState() {
+        rvSubCatregory.show()
+        containerShimmer.hide()
+        containerShimmer.stopShimmer()
+    }
+
+    @InternalCoroutinesApi
+    private fun addListeners() {
+        /*swipeRepoRefresh.setOnRefreshListener {
+            fetchCategories(true)
+            swipeRepoRefresh.isRefreshing = false
+        }
+
+
+        vInvisible.setOnClickListener {
+            s//howAlertMessage(getString(R.string.error_offline_test_scenario))
+        }*/
     }
 
     companion object {
@@ -130,7 +178,7 @@ class SubCategoriesFragment : DialogFragment() {
         viewModel = ViewModelProviders.of(activity!!).get(CategoryRepositoryViewModel::class.java)
         parentId = arguments?.getInt(KEY_TITLE)!!
         sub_categories_title.text = arguments?.getString(KEY_SUBTITLE)
-
+        observeUiState()
         observeSubCategoriesResults()
 
         super.onViewCreated(view, savedInstanceState)
@@ -147,18 +195,27 @@ class SubCategoriesFragment : DialogFragment() {
         }
     }
 
+    @InternalCoroutinesApi
     override fun onStart() {
         super.onStart()
         dialog?.window?.setLayout(
-                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT
         )
+
     }
 
     override fun onPause() {
         super.onPause()
+        //subCategoriesList.clear()
       //  clear(subCategoriesList as ArrayList<ResourceUiModel>)
 
     }
 
+    override fun onStop() {
+        super.onStop()
+        subCategoriesList.clear()
+        //  clear(subCategoriesList as ArrayList<ResourceUiModel>)
+
+    }
 }
