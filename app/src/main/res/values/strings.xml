@@ -52,4 +52,5 @@
     <string name="content_cateogry_description">Content cateogry description</string>
     <string name="sub_category_text">Sous catégorie</string>
     <string name="sub_category_name">Sous Catégorie</string>
+    <string name="category_txt">category</string>
 </resources>

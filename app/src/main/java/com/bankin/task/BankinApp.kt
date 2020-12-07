@@ -11,7 +11,7 @@ import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
-class BankinApp :  MultiDexApplication(), HasAndroidInjector {
+open class BankinApp :  MultiDexApplication(), HasAndroidInjector {
 
   @Inject
   lateinit var androidInjector: DispatchingAndroidInjector<Any>
@@ -30,7 +30,7 @@ class BankinApp :  MultiDexApplication(), HasAndroidInjector {
     super.attachBaseContext(base)
   }
 
-  fun getApplicationComponent(): AppComponent = appComponent
+  open fun getApplicationComponent(): AppComponent = appComponent
 
   override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
